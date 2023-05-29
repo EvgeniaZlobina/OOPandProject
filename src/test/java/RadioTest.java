@@ -28,4 +28,20 @@ public class RadioTest {
         int actual = rad.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void volumeIncreasemorenull (){
+        Radio rad = new Radio();
+        rad.setCurrentVolume(0);
+        int expected = 0;
+        int actual = rad.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void volumeIncreasemormin (){
+        Radio rad = new Radio();
+        rad.setCurrentVolume(-10);
+        int expected = 0;
+        int actual = rad.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
 }
