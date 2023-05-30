@@ -4,20 +4,40 @@ public class Radio {
     public int radioStationNumber;
     public int currentVolume;
 
-    public int getRadioStationNumber() {
+    public int getNextradioStationNumber() {
         return radioStationNumber;
     }
 
-    public void setRadioStationNumber(int newradioStationNumber) {
+    public int getPrewradioStationNumber() {
+        return radioStationNumber;
+    }
+
+    public void setPrewradioStationNumber(int newradioStationNumber) {
+        if (newradioStationNumber < 0) {
+            return;
+        }
+        if (newradioStationNumber > 9) {
+            return;
+        }
         radioStationNumber = newradioStationNumber;
-        if (radioStationNumber <= 0) {
+        if (radioStationNumber == 0) {
             radioStationNumber = 9;
         } else {
-            if (radioStationNumber >= 9) {
-                radioStationNumber = 0;
-            } else {
-                radioStationNumber = radioStationNumber + 1;
-            }
+            radioStationNumber = radioStationNumber - 1;
+        }
+    }
+    public void setnextRadioStationNumber(int newradioStationNumber) {
+        if (newradioStationNumber < 0) {
+            return;
+        }
+        if (newradioStationNumber > 9) {
+            return;
+        }
+        radioStationNumber = newradioStationNumber;
+        if (radioStationNumber == 9) {
+            radioStationNumber = 0;
+        } else {
+            radioStationNumber = radioStationNumber + 1;
         }
     }
 
