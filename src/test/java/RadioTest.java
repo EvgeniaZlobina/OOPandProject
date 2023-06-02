@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    // тесты на громкость звука
     @Test
     public void volumeIncrease() {
         Radio rad = new Radio();
@@ -30,6 +31,7 @@ public class RadioTest {
         int actual = rad.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void volumeIncreasemorenull() {
         Radio rad = new Radio();
@@ -47,6 +49,7 @@ public class RadioTest {
         int actual = rad.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     // Тесты переключния станции
     @Test
     public void NextChoosingRadiostation() {
@@ -56,6 +59,7 @@ public class RadioTest {
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void NextChoosingRadiostationmaxmax() {
         Radio number = new Radio();
@@ -64,6 +68,7 @@ public class RadioTest {
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void NextChoosingRadiostationmax() {
         Radio number = new Radio();
@@ -72,6 +77,7 @@ public class RadioTest {
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void NextChoosingRadiostatioLessnmin() {
         Radio number = new Radio();
@@ -80,6 +86,7 @@ public class RadioTest {
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void NextChoosingRadiostatioMorenmin() {
         Radio number = new Radio();
@@ -88,6 +95,7 @@ public class RadioTest {
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void ChoosingRadiostationprew() {
         Radio number = new Radio();
@@ -96,6 +104,7 @@ public class RadioTest {
         int actual = number.getPrewradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void ChoosingRadiostationprewmax() {
         Radio number = new Radio();
@@ -104,6 +113,7 @@ public class RadioTest {
         int actual = number.getPrewradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void ChoosingRadiostationprewMoremax() {
         Radio number = new Radio();
@@ -112,6 +122,7 @@ public class RadioTest {
         int actual = number.getPrewradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void ChoosingRadiostationprewemim() {
         Radio number = new Radio();
@@ -120,6 +131,7 @@ public class RadioTest {
         int actual = number.getPrewradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void ChoosingRadiostationprewNegative() {
         Radio number = new Radio();

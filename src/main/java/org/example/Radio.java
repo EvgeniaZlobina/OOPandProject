@@ -7,11 +7,11 @@ public class Radio {
     public int getNextradioStationNumber() {
         return radioStationNumber;
     }
-
     public int getPrewradioStationNumber() {
         return radioStationNumber;
     }
 
+    // установка номера радиостанции
     public void setPrewradioStationNumber(int newradioStationNumber) {
         if (newradioStationNumber < 0) {
             return;
@@ -26,6 +26,7 @@ public class Radio {
             radioStationNumber = radioStationNumber - 1;
         }
     }
+
     public void setnextRadioStationNumber(int newradioStationNumber) {
         if (newradioStationNumber < 0) {
             return;
@@ -43,9 +44,9 @@ public class Radio {
 
     public int getCurrentVolume() {
         return currentVolume;
-
     }
 
+    // установка громкости звука
     public void setCurrentVolume(int newcurrentVolume) {
         currentVolume = newcurrentVolume;
         if (currentVolume < 100) {
