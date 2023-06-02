@@ -8,8 +8,9 @@ public class RadioTest {
     @Test
     public void volumeIncrease() {
         Radio rad = new Radio();
-        rad.setCurrentVolume(5);
-        int expected = 6;
+        rad.setCurrentVolume(50);
+        rad.increasevolume();
+        int expected = 51;
         int actual = rad.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
@@ -18,6 +19,7 @@ public class RadioTest {
     public void volumeIncreasemax() {
         Radio rad = new Radio();
         rad.setCurrentVolume(100);
+        rad.increasevolume();
         int expected = 100;
         int actual = rad.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
@@ -27,6 +29,7 @@ public class RadioTest {
     public void volumeIncreasemoremax() {
         Radio rad = new Radio();
         rad.setCurrentVolume(101);
+        rad.increasevolume();
         int expected = 100;
         int actual = rad.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
@@ -36,7 +39,8 @@ public class RadioTest {
     public void volumeIncreasemorenull() {
         Radio rad = new Radio();
         rad.setCurrentVolume(0);
-        int expected = 0;
+        rad.increasevolume();
+        int expected = 1;
         int actual = rad.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
@@ -45,7 +49,8 @@ public class RadioTest {
     public void volumeIncreasemormin() {
         Radio rad = new Radio();
         rad.setCurrentVolume(-10);
-        int expected = 0;
+        rad.increasevolume();
+        int expected = 1;
         int actual = rad.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
@@ -54,7 +59,8 @@ public class RadioTest {
     @Test
     public void NextChoosingRadiostation() {
         Radio number = new Radio();
-        number.setnextRadioStationNumber(1);
+        number.setNextradioStationNumber(1);
+        number.nextradio();
         int expected = 2;
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
@@ -63,7 +69,8 @@ public class RadioTest {
     @Test
     public void NextChoosingRadiostationmaxmax() {
         Radio number = new Radio();
-        number.setnextRadioStationNumber(9);
+        number.setNextradioStationNumber(9);
+        number.nextradio();
         int expected = 0;
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
@@ -72,7 +79,8 @@ public class RadioTest {
     @Test
     public void NextChoosingRadiostationmax() {
         Radio number = new Radio();
-        number.setnextRadioStationNumber(8);
+        number.setNextradioStationNumber(8);
+        number.nextradio();
         int expected = 9;
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
@@ -81,8 +89,9 @@ public class RadioTest {
     @Test
     public void NextChoosingRadiostatioLessnmin() {
         Radio number = new Radio();
-        number.setnextRadioStationNumber(-5);
-        int expected = 0;
+        number.setNextradioStationNumber(-5);
+        number.nextradio();
+        int expected = 1;
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
@@ -90,54 +99,65 @@ public class RadioTest {
     @Test
     public void NextChoosingRadiostatioMorenmin() {
         Radio number = new Radio();
-        number.setnextRadioStationNumber(10);
+        number.setNextradioStationNumber(10);
+        number.nextradio();
+        int expected = 1;
+        int actual = number.getNextradioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    // prew на 1
+    @Test
+    public void ChoosingRadiostationprew() {
+        Radio number = new Radio();
+        number.setNextradioStationNumber(1);
+        number.prewradio();
         int expected = 0;
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void ChoosingRadiostationprew() {
-        Radio number = new Radio();
-        number.setPrewradioStationNumber(1);
-        int expected = 0;
-        int actual = number.getPrewradioStationNumber();
-        Assertions.assertEquals(expected, actual);
-    }
-
+    // prew на 1 от 9
     @Test
     public void ChoosingRadiostationprewmax() {
         Radio number = new Radio();
-        number.setPrewradioStationNumber(9);
+        number.setNextradioStationNumber(9);
+        number.prewradio();
         int expected = 8;
-        int actual = number.getPrewradioStationNumber();
+        int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
 
+    // prew больше 9
     @Test
     public void ChoosingRadiostationprewMoremax() {
         Radio number = new Radio();
-        number.setPrewradioStationNumber(10);
-        int expected = 0;
-        int actual = number.getPrewradioStationNumber();
+        number.setNextradioStationNumber(15);
+        number.prewradio();
+        int expected = 9;
+        int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
 
+    // prew с 0 на 9
     @Test
     public void ChoosingRadiostationprewemim() {
         Radio number = new Radio();
-        number.setPrewradioStationNumber(0);
+        number.setNextradioStationNumber(0);
+        number.prewradio();
         int expected = 9;
-        int actual = number.getPrewradioStationNumber();
+        int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
 
+    // prew отрицательные значения
     @Test
     public void ChoosingRadiostationprewNegative() {
         Radio number = new Radio();
-        number.setPrewradioStationNumber(-5);
-        int expected = 0;
-        int actual = number.getPrewradioStationNumber();
+        number.setNextradioStationNumber(-5);
+        number.prewradio();
+        int expected = 9;
+        int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
 }
