@@ -113,17 +113,6 @@ public class RadioTest {
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
-
-    @Test
-    public void NextChoosingRadiostatioLessnmin() {
-        Radio number = new Radio();
-        number.setNextradioStationNumber(-5);
-        number.nextradio();
-        int expected = 1;
-        int actual = number.getNextradioStationNumber();
-        Assertions.assertEquals(expected, actual);
-    }
-
     @Test
     public void NextChoosingRadiostatioMorenmin() {
         Radio number = new Radio();

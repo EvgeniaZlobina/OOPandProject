@@ -1,18 +1,17 @@
 package org.example;
 
 public class Radio {
+    public int quantity = 9;
     private int radioStationNumber;
     private int currentVolume;
 
-    public int quantity = 9;
-
     //if (radioStationNunber = quantity)
     public Radio() {
-      this.quantity = quantity;
+        this.quantity = quantity;
     }
 
-    public Radio (int quantity) {
-        this.quantity = quantity-1;
+    public Radio(int quantity) {
+        this.quantity = quantity - 1;
     }
 
     public int getNextradioStationNumber() {
@@ -27,7 +26,7 @@ public class Radio {
         if (newNextradioStationNumber > quantity) {
             newNextradioStationNumber = quantity;
         }
-        radioStationNumber = newNextradioStationNumber;
+        this.radioStationNumber = newNextradioStationNumber;
     }
 
     public int getCurrentVolume() {
