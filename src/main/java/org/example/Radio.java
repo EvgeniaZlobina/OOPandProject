@@ -4,8 +4,7 @@ public class Radio {
     public int quantity = 9;
     private int radioStationNumber;
     private int currentVolume;
-
-    //if (radioStationNunber = quantity)
+    
     public Radio() {
         this.quantity = quantity;
     }
