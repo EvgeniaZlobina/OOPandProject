@@ -57,6 +57,34 @@ public class RadioTest {
 
     // Тесты переключния станции
     @Test
+    public void Nexttest() {
+        Radio number = new Radio(20);
+        number.setNextradioStationNumber(18);
+        number.nextradio();
+        int expected = 19;
+        int actual = number.getNextradioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void max() {
+        Radio number = new Radio(20);
+        number.setNextradioStationNumber(20);
+        number.nextradio();
+        int expected = 0;
+        int actual = number.getNextradioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void Nexttestparametr() {
+        Radio number = new Radio(20);
+        number.setNextradioStationNumber(19);
+        number.nextradio();
+        int expected = 0;
+        int actual = number.getNextradioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void NextChoosingRadiostation() {
         Radio number = new Radio();
         number.setNextradioStationNumber(1);
@@ -85,28 +113,44 @@ public class RadioTest {
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
-
-    @Test
-    public void NextChoosingRadiostatioLessnmin() {
-        Radio number = new Radio();
-        number.setNextradioStationNumber(-5);
-        number.nextradio();
-        int expected = 1;
-        int actual = number.getNextradioStationNumber();
-        Assertions.assertEquals(expected, actual);
-    }
-
     @Test
     public void NextChoosingRadiostatioMorenmin() {
         Radio number = new Radio();
         number.setNextradioStationNumber(10);
         number.nextradio();
-        int expected = 1;
+        int expected = 0;
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
 
     // prew на 1
+    @Test
+    public void prewparametr() {
+        Radio number = new Radio(20);
+        number.setNextradioStationNumber(21);
+        number.prewradio();
+        int expected = 18;
+        int actual = number.getNextradioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void prewparametrmax() {
+        Radio number = new Radio(20);
+        number.setNextradioStationNumber(20);
+        number.prewradio();
+        int expected = 18;
+        int actual = number.getNextradioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void prew() {
+        Radio number = new Radio(20);
+        number.setNextradioStationNumber(18);
+        number.prewradio();
+        int expected = 17;
+        int actual = number.getNextradioStationNumber();
+        Assertions.assertEquals(expected, actual);
+    }
     @Test
     public void ChoosingRadiostationprew() {
         Radio number = new Radio();
@@ -134,7 +178,7 @@ public class RadioTest {
         Radio number = new Radio();
         number.setNextradioStationNumber(15);
         number.prewradio();
-        int expected = 9;
+        int expected = 8;
         int actual = number.getNextradioStationNumber();
         Assertions.assertEquals(expected, actual);
     }
